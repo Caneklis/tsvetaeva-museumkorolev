@@ -1,0 +1,23 @@
+<h2>Пример меню</h2>
+<nav class="main-nav">
+  <button class="main-nav__button" type="button" aria-expanded="false" aria-controls="main-nav__list">
+    <svg class="main-nav__icon" aria-hidden="true" width="32" height="32">
+      <use class="main-nav__icon-menu" href="images/sprite_auto.svg#menu"></use>
+      <use class="main-nav__icon-cross" href="images/sprite_auto.svg#cross"></use>
+    </svg>
+  </button>
+  <ul class="main-nav__list" id="main-nav__list">
+    {% import "data/main-nav.html" as nav %}
+
+    {% for item in nav.list %}
+    <li class="main-nav__item">
+      <a class="main-nav__link main-nav__link--current" href>{{item.title}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<script>
+
+
+</script>

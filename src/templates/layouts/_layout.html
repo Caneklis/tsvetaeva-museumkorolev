@@ -1,0 +1,229 @@
+{% import "partials/_mixins.html" as mixins %}
+<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Primary Meta Tags -->
+  <title>{% if title %}{{ title }}{% else %}Template{% endif %}</title>
+  <meta name="description" content="{% if description %}{{ description }}{% else %}Description{% endif %}">
+  <link rel="stylesheet" media="all" href="{{ base_path }}css/style.min.css" />
+  <!-- BEGIN social data -->
+  {% include "../partials/_media-tags.html" %}
+  <!-- END social data -->
+  <link rel="icon" href="{{ base_path }}favicon/favicon.ico"><!-- 32×32 -->
+  <link rel="icon" href="{{ base_path }}favicon/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ base_path }}favicon/apple-touch-icon.png"><!-- 180×180 -->
+  <link rel="manifest" href="{{ base_path }}favicon/manifest.webmanifest">
+</head>
+
+<body class="page__body">
+  <header class="header">
+    <div class="header__wrapper">
+      {% include "../partials/_main-nav.html" %}
+    </div>
+  </header>
+
+  <!-- BEGIN content -->
+  <main class="page__main">
+    {% block content %}{% endblock %}
+  </main>
+  <!-- END content -->
+
+  <footer class="footer">
+    <div class="footer__wrapper">
+
+    </div>
+  </footer>
+
+  <!-- BEGIN scripts -->
+
+  <!-- <script>
+    const geojson = {
+      type: 'FeatureCollection',
+      features: [
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-77.032, 38.913]
+          },
+          properties: {
+            title: 'Дом-музей Марины Цветаевой',
+            description: 'Москва, Борисоглебский переулок, строение 1',
+            type: 'museum'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-122.414, 37.776]
+          },
+          properties: {
+            title: 'Дом-музей Марины Цветаевой',
+            description: 'Москва, Борисоглебский переулок, строение 1',
+            type: 'bonfire'
+          }
+        },
+        {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [-100.414, 34.776]
+          },
+          properties: {
+            title: 'Дом-музей Марины Цветаевой',
+            description: 'Москва, Борисоглебский переулок, строение 1',
+            type: 'place'
+          }
+        }
+      ]
+    };
+  </script> -->
+
+  <script>
+    let places = {
+      type: 'FeatureCollection',
+      features: [
+        {
+          type: 'Feature',
+          properties: {
+            type: 'museum',
+            year: '1892',
+            name: 'Дом-музей Марины Цветаевой',
+            subtitle: 'Москва, Борисоглебский переулок, строение 1',
+            info: `
+            <p>Тут будет какой-то контен</p>
+            `,
+            website: '',
+            imagetmb:
+              'https://cdn.profile.ru/wp-content/uploads/2020/10/TASS_42274092.jpg',
+            image:
+              'images/popup-thumb.jpg',
+            'marker-color': '#7e7e7e',
+            'marker-size': 'medium',
+            'marker-symbol': 'park',
+            galleryimg1:
+              'https://cdn.profile.ru/wp-content/uploads/2020/10/TASS_42274092.jpg',
+            'gallery-img-2':
+              'https://lh3.googleusercontent.com/proxy/W0W1sPldSCMtUFX1-hlnURU0ydlquv1iY9i1ZZGXu-lxvyo-BXFxHkS1Ao2bicBnPTYVQuUedCDbtNI6NadXYLNDX81dxVVQwCv4Pmqjo5IETeXqCZ4yJyEVji01TyI8SQ',
+            'gallery-img-3': '',
+            gallerylink1: '3d-example.html',
+            'gallery-link-2': '',
+            'gallery-link-3': ''
+          },
+          geometry: {
+            type: 'Point',
+            coordinates: [37.6136, 55.7328]
+          }
+        },
+        {
+          type: 'Feature',
+          properties: {
+            type: 'bonfire',
+            year: '1920',
+            name: 'Таруса',
+            subtitle: '6 октября 1986 года',
+            cityzip: ' ',
+            info: `
+            <p>Тут будет какой-то контен</p>
+            `,
+            website: 'website.com',
+            imagetmb: 'http://www.rewizor.ru/files/162152tjwb.jpg',
+            image: '',
+            'marker-color': '#7e7e7e',
+            'marker-size': 'medium',
+            'marker-symbol': 'park',
+            'gallery-img-1': '',
+            'gallery-img-2': '',
+            'gallery-img-3': '',
+            'gallery-link-1': '',
+            'gallery-link-2': '',
+            'gallery-link-3': ''
+          },
+          geometry: {
+            type: 'Point',
+            coordinates: [37.6052, 55.7472]
+          }
+        },
+        {
+          type: 'Feature',
+          properties: {
+            type: 'place',
+            year: '1897',
+            name: 'Москва, Борисоглебский переулок, 6',
+            subtitle: 'Москва, Борисоглебский переулок, 6',
+            cityzip: ' ',
+            info: `
+            <p>Тут будет какой-то контен</p>
+            `,
+            website: 'website.com',
+            imagetmb: 'http://www.rewizor.ru/files/162152tjwb.jpg',
+            image: 'image/popup-thumb.jpg',
+            'marker-color': '#7e7e7e',
+            'marker-size': 'medium',
+            'marker-symbol': 'park',
+            'gallery-img-1': '',
+            'gallery-img-2': '',
+            'gallery-img-3': '',
+            'gallery-link-1': '',
+            'gallery-link-2': '',
+            'gallery-link-3': ''
+          },
+          geometry: {
+            type: 'Point',
+            coordinates: [-77.032, 38.913]
+          }
+        },
+        {
+          type: 'Feature',
+          properties: {
+            type: 'place',
+            year: '1897',
+            name: 'Москва, Борисоглебский переулок, 6',
+            subtitle: 'ул. Волхонка, 12',
+            cityzip: ' ',
+            info: `
+            <p>Тут будет какой-то контен</p>
+            `,
+            website: 'website.com',
+            imagetmb: 'http://www.rewizor.ru/files/162152tjwb.jpg',
+            image: 'images/popup-thumb.jpg',
+            'marker-color': '#7e7e7e',
+            'marker-size': 'medium',
+            'marker-symbol': 'park',
+            'gallery-img-1': '',
+            'gallery-img-2': '',
+            'gallery-img-3': '',
+            'gallery-link-1': '',
+            'gallery-link-2': '',
+            'gallery-link-3': ''
+          },
+          geometry: {
+            type: 'Point',
+            coordinates: [31.032, 58.913]
+          }
+        }
+      ]
+    };
+  </script>
+
+
+  <script
+    src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+  <!-- <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+  <script src="{{ base_path }}js/libs.min.js"></script>
+  <script src="{{ base_path }}js/main.min.js"></script>
+
+  <script>
+  </script>
+  <!-- END scripts -->
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+.main-nav__button {
+  .main-nav__icon {
+    stroke: $base-color;
+
+    &-cross {
+      display: none;
+    }
+
+    &-menu {
+      display: block;
+    }
+  }
+
+  &--open {
+    .main-nav__icon {
+      &-cross {
+        display: block;
+      }
+      &-menu {
+        display: none;
+      }
+    }
+  }
+}
+
+.main-nav__list {
+  @include list-reset;
+  display: none;
+
+  &--open {
+    display: block;
+  }
+}

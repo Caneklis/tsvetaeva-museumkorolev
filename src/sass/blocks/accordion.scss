@@ -1,0 +1,44 @@
+.accordion__list {
+  @include list-reset;
+}
+
+.accordion {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid $base-color;
+  text-align: left;
+}
+
+.accordion__title {
+  width: 100%;
+  margin: 0;
+  padding: 20px 10px;
+  font-family: inherit;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: $base-color;
+  color: #ffffff;
+  cursor: pointer;
+  transition: $transition;
+  border: 0 none;
+  border-bottom: 1px solid #555555;
+  text-align: left;
+}
+
+.accordion__title:hover,
+.accordion__title:focus {
+  background: darken($base-color, 10%);
+}
+
+.accordion__content {
+  overflow: hidden;
+  box-sizing: content-box;
+  padding: 0 1.5em 0 1.5em;
+  color: $base-color;
+  line-height: 1.6;
+  font-size: 1em;
+  font-weight: 500;
+  max-height: 0;
+  transition: padding $transition, max-height $transition;
+}

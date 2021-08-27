@@ -1,0 +1,11 @@
+{% macro icon(i) %}
+<svg class="icon icon-{{i}}">
+  <use xlink:href="img/svg/sprite.svg#icon-{{i}}"></use>
+</svg>
+{% endmacro %}
+
+{% macro field(name, value='', type='text') %}
+<div class="field">
+  <input type="{{ type }}" name="{{ name }}" value="{{ value | escape }}" />
+</div>
+{% endmacro %}
