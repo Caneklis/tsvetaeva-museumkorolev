@@ -1,4 +1,3 @@
-<h2>Пример меню</h2>
 <nav class="main-nav">
   <button class="main-nav__button" type="button" aria-expanded="false" aria-controls="main-nav__list">
     <svg class="main-nav__icon" aria-hidden="true" width="32" height="32">
@@ -11,13 +10,9 @@
 
     {% for item in nav.list %}
     <li class="main-nav__item">
-      <a class="main-nav__link main-nav__link--current" href>{{item.title}}</a>
+      <a class="main-nav__link {% if title === item.title %} main-nav__link--current{% endif %}"
+        href="{{item.href}}.html">{{item.title}}</a>
     </li>
     {% endfor %}
   </ul>
 </nav>
-
-<script>
-
-
-</script>

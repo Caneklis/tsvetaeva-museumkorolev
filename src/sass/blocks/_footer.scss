@@ -1,0 +1,122 @@
+.footer {
+  background-color: #0b7d8c;
+  background-image: url("../images/footer-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+    background-image: url("../images/footer-bg@2x.jpg");
+  }
+}
+
+.footer__wrapper {
+  @include wrapper;
+  padding-top: 58px;
+  padding-bottom: 70px;
+
+  @media ($desktop) {
+    display: grid;
+    grid-template-columns: repeat(12, [col] 1fr);
+    grid-gap: 40px;
+    row-gap: 115px;
+    align-items: flex-start;
+  }
+}
+
+.footer__contacts-list {
+  @include list-reset;
+  grid-column: col / span 5;
+}
+
+.footer__contacts-item {
+  color: #ffffff;
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  @media ($tablet) {
+    display: grid;
+    grid-template-columns: 1.5fr 3fr;
+    column-gap: 25px;
+  }
+}
+
+.footer__contacts-type {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.footer__contacts-info {
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.footer__nav-list {
+  @include list-reset;
+  margin: 45px 0;
+  grid-column: 6 / span 7;
+
+  @media ($tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 25px;
+  }
+
+  @media ($desktop) {
+    margin: 0;
+    column-gap: 45px;
+    justify-content: flex-end;
+  }
+}
+
+.footer__nav-item {
+  font-family: $s-font;
+  font-size: 30px;
+  line-height: 34px;
+  color: #ffffff;
+}
+
+.footer__nav-link {
+  color: inherit;
+
+  &--current,
+  &:hover {
+    color: #94dbe4;
+  }
+}
+
+.footer__sponsors-list {
+  @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 145px;
+  row-gap: 45px;
+  grid-column: col / span 5;
+}
+
+.footer__list-links {
+  @include list-reset;
+  grid-column: 10 / span 3;
+
+  &--rules {
+    grid-column: 7 / span 3;
+  }
+}
+
+.footer__item-link {
+  font-size: 14px;
+  line-height: 30px;
+  color: #ffffff;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    transition: $transition;
+
+    &:hover {
+      color: #94dbe4;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.logo {
+  order: 1;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000;
+
+  a {
+    color: inherit;
+  }
+
+  @media ($tablet) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.logo__link {
+  @media ($tablet) {
+    br {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+.section-map {
+  background-color: #0b7d8c;
+
+  @media ($tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    justify-content: center;
+  }
+}
+
+.section-map__cite {
+  position: relative;
+  padding-left: 100px;
+  padding-top: 160px;
+  padding-bottom: 135px;
+  font-family: $s-font;
+  font-size: 32px;
+  line-height: 48px;
+  color: #ffffff;
+  background-image: url("../images/section-map-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left top;
+
+  p {
+    max-width: 620px;
+    margin: 0;
+    margin-left: auto;
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+    background-image: url("../images/section-map-bg@2x.jpg");
+  }
+
+  @media ($desktop) {
+    font-size: 52px;
+    line-height: 78px;
+  }
+
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   right: 0;
+  //   display: block;
+  //   height: 100%;
+  // }
+}
+
+.section-map__text {
+  // grid-column: 6 / span 6;
+  max-width: 850px;
+  margin-right: auto;
+  padding-left: 100px;
+  padding-top: 160px;
+  padding-bottom: 135px;
+
+  p {
+    margin: 0;
+    margin-bottom: 40px;
+    font-size: 22px;
+    line-height: 36px;
+    color: #ffffff;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.section-map__btn {
+  width: auto;
+  margin-top: 85px;
+  padding: 10px 40px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b7d8c;
+  background: #ffffff;
+  border: 2px solid transparent;
+  transition: $transition;
+
+  &:hover {
+    color: #fff;
+    background: #0b7d8c;
+    border: 2px solid #ffffff;
+  }
+}

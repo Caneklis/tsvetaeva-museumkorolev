@@ -1,0 +1,46 @@
+.search-form__field {
+  width: 280px;
+  padding-right: 40px;
+  display: flex;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(10, 169, 190, 0.2);
+  border-radius: 50px;
+  overflow: hidden;
+
+  input {
+    flex-grow: 1;
+    padding: 27px 40px;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 18px;
+    color: #a4a4a4;
+  }
+
+  @media ($tablet) {
+    width: 400px;
+  }
+
+  @media ($desktop) {
+    width: 800px;
+  }
+}
+
+.search-form__submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  color: #0aa9be;
+  background-color: transparent;
+  border: none;
+  transition: $transition;
+  cursor: pointer;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    color: #000;
+  }
+}

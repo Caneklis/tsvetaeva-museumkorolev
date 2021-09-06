@@ -1,0 +1,15 @@
+---
+title: Ошибка 404
+description: Description test
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+<section class="error-page">
+  <div class="error-page__wrapper">
+    <p class="error-page__type">{{title}}</p>
+    <p class="error-page__text">Страница не найдена</p>
+    <a href="index.html">Вернуться</a>
+  </div>
+</section>
+{% endblock %}

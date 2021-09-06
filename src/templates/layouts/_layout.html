@@ -20,11 +20,7 @@
 </head>
 
 <body class="page__body">
-  <header class="header">
-    <div class="header__wrapper">
-      {% include "../partials/_main-nav.html" %}
-    </div>
-  </header>
+  {% include '../partials/_header.html' %}
 
   <!-- BEGIN content -->
   <main class="page__main">
@@ -32,11 +28,7 @@
   </main>
   <!-- END content -->
 
-  <footer class="footer">
-    <div class="footer__wrapper">
-
-    </div>
-  </footer>
+  {% include '../partials/_footer.html' %}
 
   <!-- BEGIN scripts -->
 
@@ -117,7 +109,7 @@
           },
           geometry: {
             type: 'Point',
-            coordinates: [37.6136, 55.7328]
+            coordinates: [9.46, 51.30]
           }
         },
         {

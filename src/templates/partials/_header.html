@@ -1,1 +1,33 @@
-<p>Hello from partials/_header.html123</p>
+<header class="header">
+  <div class="header__wrapper">
+    <div class="logo">
+      <a class="logo__link" href="index.html">Музейное объединение <br>«Музеи наукограда Королев»</a>
+    </div>
+    {% include "../partials/_main-nav.html" %}
+    <div class="header__user-block">
+      <div class="header__search">
+        <button class="header__search-btn" type="button" aria-label="Открыть форму поиска">
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <use href="images/sprite_auto.svg#search" />
+          </svg>
+        </button>
+        <form class="header__search-form  search-form" action="#" method="GET">
+          <div class="search-form__field">
+            <input type="search">
+            <button class="search-form__submit-btn" type="submit" aria-label="Найти">
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <use href="images/sprite_auto.svg#search" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="lang">
+        <ul class="lang__list">
+          <li class="lang__item"><a href="#">En</a></li>
+          <li class="lang__item"><a href="#">Аа</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,118 @@
+---
+title: Главная страница
+description: Description index
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+<!-- <div class="map"> -->
+<!-- <div id='map' style='width: 100%; height: 100%;'></div> -->
+<section class="mapbox">
+  <ul class="years">
+    <li class="years__item  years__item--full" data-year="1892"><span>1892</span></li>
+    <li class="years__item" data-year="1893"><span>1893</span></li>
+    <li class="years__item" data-year="1894"><span>1894</span></li>
+    <li class="years__item" data-year="1895"><span>1895</span></li>
+    <li class="years__item" data-year="1896"><span>1896</span></li>
+    <li class="years__item  years__item--full" data-year="1897"><span>1897</span></li>
+    <li class="years__item" data-year="1898"><span>1898</span></li>
+    <li class="years__item" data-year="1899"><span>1899</span></li>
+    <li class="years__item" data-year="1900"><span>1900</span></li>
+    <li class="years__item" data-year="1901"><span>1901</span></li>
+    <li class="years__item  years__item--full" data-year="1902"><span>1902</span></li>
+    <li class="years__item" data-year="1903"><span>1903</span></li>
+    <li class="years__item" data-year="1904"><span>1904</span></li>
+    <li class="years__item" data-year="1905"><span>1905</span></li>
+    <li class="years__item" data-year="1906"><span>1906</span></li>
+    <li class="years__item  years__item--full" data-year="1907"><span>1907</span></li>
+    <li class="years__item" data-year="1908"><span>1908</span></li>
+    <li class="years__item" data-year="1909"><span>1909</span></li>
+    <li class="years__item" data-year="1910"><span>1910</span></li>
+    <li class="years__item" data-year="1911"><span>1911</span></li>
+    <li class="years__item  years__item--full" data-year="1912"><span>1912</span></li>
+    <li class="years__item  years__item--full" data-year="1917"><span>1917</span></li>
+    <li class="years__item  years__item--full" data-year="1922"><span>1922</span></li>
+    <li class="years__item  years__item--full" data-year="1927"><span>1927</span></li>
+    <li class="years__item  years__item--full" data-year="1932"><span>1932</span></li>
+    <li class="years__item  years__item--full" data-year="1937"><span>1937</span></li>
+    <li class="years__item  years__item--full" data-year="1941"><span>1941</span></li>
+    <li>
+      <button class="years-btn years-play-btn" type="button" aria-label="Старт">
+        <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.791672 19C0.581708 19 0.380343 18.9166 0.231876 18.7681C0.0834083 18.6197 0 18.4183 0 18.2083V0.791537C2.3553e-05 0.653968 0.035895 0.518779 0.104079 0.399295C0.172262 0.279811 0.270405 0.180158 0.388832 0.110156C0.50726 0.0401541 0.641885 0.00222052 0.779438 9.45593e-05C0.916991 -0.0020314 1.05272 0.0317236 1.17326 0.0980321L17.0067 8.80643C17.1308 8.87477 17.2343 8.97517 17.3064 9.09716C17.3785 9.21914 17.4165 9.35824 17.4165 9.49993C17.4165 9.64163 17.3785 9.78073 17.3064 9.90271C17.2343 10.0247 17.1308 10.1251 17.0067 10.1934L1.17326 18.9018C1.05637 18.9662 0.925108 19 0.791672 19Z"
+            fill="currentColor" />
+        </svg>
+
+      </button>
+      <button class="years-btn years-resume-btn  years-resume-btn--hide" type="button" aria-label="Продолжить">
+        <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.791672 19C0.581708 19 0.380343 18.9166 0.231876 18.7681C0.0834083 18.6197 0 18.4183 0 18.2083V0.791537C2.3553e-05 0.653968 0.035895 0.518779 0.104079 0.399295C0.172262 0.279811 0.270405 0.180158 0.388832 0.110156C0.50726 0.0401541 0.641885 0.00222052 0.779438 9.45593e-05C0.916991 -0.0020314 1.05272 0.0317236 1.17326 0.0980321L17.0067 8.80643C17.1308 8.87477 17.2343 8.97517 17.3064 9.09716C17.3785 9.21914 17.4165 9.35824 17.4165 9.49993C17.4165 9.64163 17.3785 9.78073 17.3064 9.90271C17.2343 10.0247 17.1308 10.1251 17.0067 10.1934L1.17326 18.9018C1.05637 18.9662 0.925108 19 0.791672 19Z"
+            fill="currentColor" />
+        </svg>
+      </button>
+      <button class="years-btn years-stop-btn  years-stop-btn--hide" type="button" aria-label="Пауза">
+        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.2 18.5714C4.2 18.9503 4.0525 19.3137 3.78995 19.5816C3.5274 19.8495 3.1713 20 2.8 20H1.4C1.0287 20 0.672602 19.8495 0.410051 19.5816C0.1475 19.3137 0 18.9503 0 18.5714V1.42857C0 1.04969 0.1475 0.686328 0.410051 0.418419C0.672602 0.15051 1.0287 0 1.4 0H2.8C3.1713 0 3.5274 0.15051 3.78995 0.418419C4.0525 0.686328 4.2 1.04969 4.2 1.42857V18.5714ZM14 18.5714C14 18.9503 13.8525 19.3137 13.59 19.5816C13.3274 19.8495 12.9713 20 12.6 20H11.2C10.8287 20 10.4726 19.8495 10.2101 19.5816C9.9475 19.3137 9.8 18.9503 9.8 18.5714V1.42857C9.8 1.04969 9.9475 0.686328 10.2101 0.418419C10.4726 0.15051 10.8287 0 11.2 0H12.6C12.9713 0 13.3274 0.15051 13.59 0.418419C13.8525 0.686328 14 1.04969 14 1.42857V18.5714Z"
+            fill="currentColor" />
+        </svg>
+
+
+      </button>
+    </li>
+  </ul>
+  <div id='poimapbox-map' class='poimapbox-map' style='width: 100%; height: 990px;'> </div>
+
+  <div class="mapbox__search">
+    <button class="mapboxgl__search-form-toggle" type="button">
+      <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <use href="images/sprite_auto.svg#search" />
+      </svg>
+    </button>
+    <div class='poimapbox-sidebar'>
+      <div class="poimapbox-sidebar__wrapper">
+        <!-- <div class='poimapbox-heading'>
+          <h1 class='poimapbox-list-header-h1'>{{title}}</h1>
+        </div> -->
+        <input type="text" id="search-input" placeholder="Введите текст">
+        <ul id='poimapbox-listings' class='poimapbox-listings'></ul>
+        <button class="poimapbox-sidebar__close-btn" type="button">
+          <svg width="9" height="27" viewBox="0 0 9 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M8.37536 0.110007C8.10874 -0.0133388 7.79996 -0.0338504 7.51695 0.052984C7.23394 0.139818 6.99988 0.326886 6.86626 0.573038L0.119162 13.0313C0.040802 13.1756 0 13.3349 0 13.4964C0 13.6579 0.040802 13.8171 0.119162 13.9615L6.86626 26.4197C6.93172 26.5427 7.0229 26.6525 7.13453 26.7428C7.24617 26.833 7.37605 26.902 7.5167 26.9457C7.65735 26.9895 7.80599 27.007 7.95403 26.9975C8.10207 26.9879 8.2466 26.9514 8.37928 26.89C8.51196 26.8286 8.63017 26.7436 8.72709 26.6398C8.82401 26.5361 8.89772 26.4156 8.94398 26.2854C8.99024 26.1552 9.00812 26.0179 8.99661 25.8813C8.9851 25.7447 8.94441 25.6115 8.8769 25.4895L2.38394 13.4964L8.8769 1.50325C9.0105 1.25709 9.03272 0.972019 8.93866 0.710737C8.84461 0.449455 8.64198 0.233367 8.37536 0.110007Z"
+              fill="currentColor"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="filter" id="menu">
+  <button class="filter__btn filter__btn--active" type="button">
+    <svg width="9" height="27" viewBox="0 0 9 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M8.37536 0.110007C8.10874 -0.0133388 7.79996 -0.0338504 7.51695 0.052984C7.23394 0.139818 6.99988 0.326886 6.86626 0.573038L0.119162 13.0313C0.040802 13.1756 0 13.3349 0 13.4964C0 13.6579 0.040802 13.8171 0.119162 13.9615L6.86626 26.4197C6.93172 26.5427 7.0229 26.6525 7.13453 26.7428C7.24617 26.833 7.37605 26.902 7.5167 26.9457C7.65735 26.9895 7.80599 27.007 7.95403 26.9975C8.10207 26.9879 8.2466 26.9514 8.37928 26.89C8.51196 26.8286 8.63017 26.7436 8.72709 26.6398C8.82401 26.5361 8.89772 26.4156 8.94398 26.2854C8.99024 26.1552 9.00812 26.0179 8.99661 25.8813C8.9851 25.7447 8.94441 25.6115 8.8769 25.4895L2.38394 13.4964L8.8769 1.50325C9.0105 1.25709 9.03272 0.972019 8.93866 0.710737C8.84461 0.449455 8.64198 0.233367 8.37536 0.110007Z"
+        fill="currentColor" />
+    </svg>
+  </button>
+  <ul class="filter__list  filter__list--active">
+    <li class="filter__item  filter__item--place" data-filter="place"> <img src="images/home.svg" width="50" height="50"
+        alt=""> цветаевские
+      места</li>
+    <li class="filter__item  filter__item--museum" data-filter="museum"><img src="images/museum.svg" width="50"
+        height="50" alt="">музеи М.
+      Цветаевой</li>
+    <li class="filter__item  filter__item--bonfire" data-filter="bonfire"><img src="images/bonfire.svg" width="50"
+        height="50" alt="">цветаевские костры</li>
+    <li class="filter__item" data-filter="all">Показать все</li>
+  </ul>
+</nav>
+<!-- </div> -->
+
+<div id="poimapbox-listings"></div>
+
+{% endblock %}
