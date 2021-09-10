@@ -1,4 +1,5 @@
 import mapboxgl from "mapbox-gl";
+import Swiper from "../../node_modules/swiper/swiper-bundle";
 // import { doc } from 'prettier';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,6 +26,92 @@ document.addEventListener("DOMContentLoaded", () => {
       searcForm.classList.remove("header__search--open");
     }
   });
+
+  const textpageGallerySlider = new Swiper(
+    ".textpage__gallery-slider-container",
+    {
+      slidesPerView: 1,
+      spaceBetween: 20,
+
+      pagination: {
+        el: ".textpage__gallery-slider-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+          navigation: {
+            nextEl: ".textpage__gallery-slider-next",
+            prevEl: ".textpage__gallery-slider-prev",
+          },
+        },
+      },
+    }
+  );
+
+  const textpageLargeSlider = new Swiper(".textpage__large-slider", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+
+    pagination: {
+      el: ".textpage__large-slider-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".textpage__large-slider-next",
+      prevEl: ".textpage__large-slider-prev",
+    },
+  });
+
+  // breakpoint where swiper will be destroyed
+  // and switches to a dual-column layout
+  const breakpoint = window.matchMedia("(min-width:767px)");
+
+  // keep track of swiper instances to destroy later
+  let mySwiper;
+
+  const breakpointChecker = function () {
+    // if larger viewport and multi-row layout needed
+    if (breakpoint.matches === true) {
+      // clean up old instances and inline styles when available
+      if (mySwiper !== undefined) {
+        mySwiper.destroy(true, true);
+      }
+
+      // or/and do nothing
+      return;
+
+      // else if a small viewport and single column layout needed
+    } else if (breakpoint.matches === false) {
+      // fire small viewport version of swiper
+      return enableSwiper();
+    }
+  };
+
+  const enableSwiper = function () {
+    mySwiper = new Swiper(".news-slider", {
+      loop: false,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      centeredSlides: true,
+      a11y: true,
+      pagination: {
+        el: ".news-slider-pagination",
+        clickable: true,
+      },
+    });
+  };
+
+  // keep an eye on viewport size changes
+  breakpoint.addListener(breakpointChecker);
+
+  // kickstart
+  breakpointChecker();
 
   let i;
 

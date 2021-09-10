@@ -1,6 +1,6 @@
 .main-nav {
   width: 100%;
-  margin-top: 25px;
+  // margin-top: 25px;
   order: 3;
 
   @media ($desktop) {
@@ -12,11 +12,24 @@
 }
 
 .main-nav__button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: #fff;
+  border: none;
+  outline: none;
+
   .main-nav__icon {
     stroke: $base-color;
 
     &-cross {
       display: none;
+      stroke: none;
     }
 
     &-menu {
@@ -44,32 +57,57 @@
   display: none;
 
   &--open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: block;
+    padding-left: 20px;
+    padding-top: 80px;
+    padding-bottom: 65px;
+    background-color: #fff;
 
     @media ($tablet) {
       display: flex;
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+      position: static;
     }
   }
 
   @media ($tablet) {
     display: flex;
+    padding-top: 20px;
+  }
+
+  @media ($desktop) {
+    padding-top: 0;
   }
 }
 
 .main-nav__item {
+  margin-bottom: 30px;
   font-family: $s-font;
   font-style: normal;
   font-weight: normal;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 30px;
   color: #000;
 
   @media ($tablet) {
+    margin-bottom: 0;
     margin-left: 35px;
 
     &:first-child {
       margin-left: 0;
     }
+  }
+
+  @media ($desktop) {
+    font-size: 26px;
+    line-height: 30px;
   }
 }
 

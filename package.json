@@ -53,6 +53,7 @@
     "sass": "^1.38.1",
     "stylelint": "13.5.0",
     "stylelint-config-htmlacademy": "^0.1.4",
+    "swiper": "^7.0.4",
     "webpack": "^5.27.2",
     "webpack-stream": "^6.1.2"
   },

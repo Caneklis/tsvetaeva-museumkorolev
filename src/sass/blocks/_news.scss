@@ -9,36 +9,108 @@
     column-gap: 40px;
     padding-top: 100px;
     padding-bottom: 115px;
+
+    &--full {
+      padding-top: 60px;
+    }
   }
 }
 
 .news__list {
-  @include list-reset;
+  &--full {
+    margin-bottom: 40px;
+  }
 
   @media ($tablet) {
     grid-column: col / span 9;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 40px;
-    row-gap: 60px;
+    grid-row: 1/2;
+
+    .swiper-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 40px;
+      row-gap: 60px;
+    }
+
+    &--full {
+      grid-column: col / span 12;
+      margin-bottom: 80px;
+    }
   }
 
   @media ($desktop) {
     grid-template-columns: repeat(3, 1fr);
+
+    .swiper-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &--full {
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: 115px;
+    }
   }
 }
 
 .news__title {
   margin: 0;
+  margin-bottom: 30px;
   font-family: $s-font;
   font-style: normal;
   font-weight: normal;
-  font-size: 30px;
-  line-height: 34px;
+  font-size: 18px;
+  line-height: 21px;
   color: #000000;
 
   @media ($tablet) {
     grid-column: 10 / span 3;
+    margin-bottom: 0;
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+.news__main-title {
+  grid-column: col / span 8;
+  margin: 0;
+  margin-bottom: 90px;
+  font-family: $s-font;
+  font-weight: normal;
+  font-size: 72px;
+  line-height: 82px;
+  color: #000000;
+}
+
+.news__year-nav {
+  grid-column: 9 / span 4;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  margin-bottom: 90px;
+  font-size: 17px;
+  line-height: 25px;
+  color: #000000;
+
+  a {
+    &:first-child {
+      margin-left: 22px;
+    }
+  }
+
+  p {
+    margin: 0;
+
+    &.news__archive-year {
+      margin: 0 13px;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 20px;
+      /* or 118% */
+
+      text-align: center;
+
+      color: #0aa9be;
+    }
   }
 }
 
@@ -51,8 +123,16 @@
   flex-direction: column;
 
   p {
-    font-size: 17px;
-    line-height: 25px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @media ($tablet) {
+    p {
+      font-size: 17px;
+      line-height: 25px;
+    }
   }
 }
 .news__head {
@@ -60,19 +140,18 @@
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  margin-bottom: 30px;
-  padding-top: 23px;
-  padding-bottom: 40px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 20px;
   border-bottom: 2px solid #694484;
 
   h3 {
     margin: 0;
-    margin-bottom: 15px;
     font-family: $s-font;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
-    line-height: 32px;
+    font-size: 18px;
+    line-height: 30px;
     color: #694484;
 
     a {
@@ -83,13 +162,82 @@
         color: #0b7d8c;
       }
     }
+
+    @media ($tablet) {
+      margin-bottom: 15px;
+      font-size: 30px;
+      line-height: 32px;
+    }
   }
 
   time {
     margin-top: auto;
     font-family: $s-font;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 18px;
+    line-height: 30px;
     color: #1a1a1a;
+
+    @media ($tablet) {
+      font-size: 30px;
+      line-height: 80px;
+    }
+  }
+
+  @media ($tablet) {
+    margin-bottom: 30px;
+    padding-top: 23px;
+    padding-bottom: 40px;
+  }
+}
+
+.news__all-link {
+  min-width: 260px;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: #6b4786;
+  border: 2px solid #6b4786;
+  transition: $transition;
+
+  &:hover {
+    background-color: #fff;
+    color: #6b4786;
+  }
+}
+
+.news-slider {
+  overflow: hidden;
+}
+
+.news-slider-pagination {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    margin-right: 15px;
+    background: #eee1be;
+    opacity: 1;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &-active {
+      background: #0aa9be;
+    }
+  }
+
+  @media ($tablet) {
+    display: none;
   }
 }

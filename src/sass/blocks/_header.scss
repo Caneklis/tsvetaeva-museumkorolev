@@ -11,15 +11,25 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding-top: 47px;
-  padding-bottom: 54px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  @media ($tablet) {
+    padding-top: 47px;
+    padding-bottom: 54px;
+  }
 }
 
 .header__user-block {
   display: flex;
   flex-wrap: wrap;
   margin-left: auto;
+  margin-top: 160px;
   order: 2;
+
+  @media ($tablet) {
+    margin-top: 0;
+  }
 
   @media ($desktop) {
     order: 3;

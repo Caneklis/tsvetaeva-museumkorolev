@@ -1,0 +1,68 @@
+.download {
+  @include list-reset;
+  padding-left: 0 !important;
+}
+
+.download__item {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 31px !important;
+  color: #0aa9be;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    display: block;
+    width: 16px;
+    height: 25px;
+    mask-image: url("../images/download-icon.svg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: contain;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: #0aa9be;
+    transition: $transition;
+  }
+
+  p {
+    margin: 0;
+    font-family: $s-font;
+    font-style: normal;
+    font-weight: normal;
+
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    text-decoration-line: underline;
+    color: inherit;
+
+    @media ($tablet) {
+      font-size: 22px;
+      line-height: 34px;
+    }
+
+    a {
+      color: inherit;
+      transition: $transition;
+    }
+  }
+
+  &:hover {
+    color: #6b4786;
+
+    &::before {
+      background-color: #6b4786;
+    }
+  }
+
+  @media ($tablet) {
+    margin-bottom: 45px;
+  }
+}

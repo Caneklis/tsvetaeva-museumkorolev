@@ -18,12 +18,24 @@
     color: #a4a4a4;
   }
 
+  &--full {
+    width: 100%;
+  }
+
   @media ($tablet) {
     width: 400px;
+
+    &--full {
+      width: 100%;
+    }
   }
 
   @media ($desktop) {
     width: 800px;
+
+    &--full {
+      width: 1120px;
+    }
   }
 }
 

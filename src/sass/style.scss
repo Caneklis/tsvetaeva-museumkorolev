@@ -1,5 +1,6 @@
 @import "../../node_modules/normalize.css/normalize";
 @import "../../node_modules/mapbox-gl/dist/mapbox-gl";
+@import "../../node_modules/swiper/swiper-bundle";
 @import "global/variables";
 @import "global/mixins";
 @import "global/fonts";
@@ -19,6 +20,11 @@
 @import "blocks/collection";
 @import "blocks/error-page";
 @import "blocks/section-map";
+@import "blocks/breadcrumbs";
+@import "blocks/textpage";
+@import "blocks/video";
+@import "blocks/download";
+@import "blocks/search-page";
 // @import "blocks/accordion";
 // @import "blocks/tabs";
 

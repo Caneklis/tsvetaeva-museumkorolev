@@ -1,0 +1,156 @@
+---
+title: Сыновья. Георгий Эфрон, Федор Булгаков
+description: Description test
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+{% include "./partials/_breadcrumbs.html" %}
+
+<section class="textpage">
+  <div class="textpage__head  textpage__head--full">
+    <div class="textpage__head-text  textpage__head-text--full">
+      <h1>{{title}}</h1>
+      <time class="textpage__head-date" datetime="2021-03-31">31 марта 2021</time>
+    </div>
+  </div>
+  <div class="textpage__wrapper">
+    <div class="textpage__text">
+      <div class="textpage__main-photo">
+        <figure>
+          <img src="images/textpage-main-photo.jpg" alt="Описание к фотография">
+          <figcaption>
+            <p><strong>Комната Марины Цветаевой.</strong> Музей в Борисоглебском переулке в Москве</p>
+          </figcaption>
+        </figure>
+      </div>
+      {% markdown %}
+      {% include 'post1.md' %}
+      {% endmarkdown %}
+    </div>
+  </div>
+
+  <div class="textpage__wrapper">
+    <!-- Слайдер на 3 картинки -->
+    <div class="textpage__gallery-slider">
+      <div class="textpage__gallery-slider-container">
+        <div class="swiper-wrapper">
+          <div class="textpage__gallery-slider-item  swiper-slide">
+            <img src="images/gallery-slider-item-1.jpg" alt="">
+          </div>
+          <div class="textpage__gallery-slider-item  swiper-slide">
+            <img src="images/gallery-slider-item-2.jpg" alt="">
+          </div>
+          <div class="textpage__gallery-slider-item  swiper-slide">
+            <img src="images/gallery-slider-item-3.jpg" alt="">
+          </div>
+          <div class="textpage__gallery-slider-item  swiper-slide">
+            <img src="images/gallery-slider-item-1.jpg" alt="">
+          </div>
+          <div class="textpage__gallery-slider-item  swiper-slide">
+            <img src="images/gallery-slider-item-2.jpg" alt="">
+          </div>
+          <div class="textpage__gallery-slider-item  swiper-slide">
+            <img src="images/gallery-slider-item-3.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="textpage__gallery-slider-pagination"></div>
+      <div class="textpage__gallery-slider-prev">
+        <svg width="10" height="30" viewBox="0 0 10 30" xmlns="http://www.w3.org/2000/svg">
+          <use href="images/sprite_auto.svg#prev-arrow" />
+        </svg>
+      </div>
+      <div class="textpage__gallery-slider-next">
+        <svg width="10" height="30" viewBox="0 0 10 30" xmlns="http://www.w3.org/2000/svg">
+          <use href="images/sprite_auto.svg#next-arrow" />
+        </svg>
+      </div>
+    </div>
+    <!-- Слайдер на 3 картинки -->
+    <div class="textpage__text">
+      {% markdown %}
+      {% include 'post2-2.md' %}
+      {% endmarkdown %}
+    </div>
+    <div class="textpage__table">
+      <table>
+        <tr>
+          <th>Год</th>
+          <th>Название стихотворения</th>
+          <th>Размер</th>
+          <th>Место</th>
+          <th>Жанр</th>
+        </tr>
+        <tr>
+          <td>1913</td>
+          <td>«Моим стихам, написанным так рано...»</td>
+          <td> Пятистопный ямб</td>
+          <td>Коктебель</td>
+          <td>Стихотворение</td>
+        </tr>
+        <tr>
+          <td>1923</td>
+          <td>«Минута: минущая: минешь!..»</td>
+          <td>Четырехстопный ямб</td>
+          <td>Прага</td>
+          <td>Стихотворение</td>
+        </tr>
+        <tr>
+          <td>1933</td>
+          <td>«Стол»</td>
+          <td>Логаэд</td>
+          <td>Париж</td>
+          <td>Цикл</td>
+        </tr>
+        <tr>
+          <td>1913</td>
+          <td>«Моим стихам, написанным так рано...»</td>
+          <td>Пятистопный ямб</td>
+          <td>Коктебель</td>
+          <td>Стихотворение</td>
+        </tr>
+        <tr>
+          <td>1923</td>
+          <td>«Минута: минущая: минешь!..»</td>
+          <td>Четырехстопный ямб</td>
+          <td>Прага</td>
+          <td>Стихотворение</td>
+        </tr>
+        <tr>
+          <td>1933</td>
+          <td>«Стол»</td>
+          <td>Логаэд</td>
+          <td>Париж</td>
+          <td>Цикл</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="textpage__text">
+      <p>Но затем, от 1916 к 1917 г., последовал новый перелом: враждебная действительность, впущенная в поэзию,
+        надвинулась еще ближе, и под ее давлением монолит цветаевской лирики, державшийся единством авторского
+        самоутверждения, раскалывается на несколько частей. Воинствующие отклики на современность ложатся отдельно и
+        складываются в конце концов в "Лебединый стан". С противоположной стороны ложатся воинствующие выходы из
+        современности в то, что Цветаева называла "Романтика". Здесь новым оказывается то, что это не откровенничающая
+        лирика, с которой Цветаева начинала ("словно заглянул через окно"), а игровая, ролевая: "я буду Жанной д'Арк, а
+        ты Карлом Седьмым", как выразился зоркий на игру П. Антокольский. Такая лирика присутствовала у нее и раньше: по
+        существу, это просто из трех разделов "Вечернего альбома" отпал детский, перестроился полудетский и остался
+        книжный. Ранняя игровая лирика жила лишь на правах слабого оттенения, а теперь она выступает на первый план,
+        перерастает малые формы и выливается в пьесы для вахтанговцев и в "Царь-девицу".</p>
+      <ul class="download">
+        <li class="download__item">
+          <p><a href="#">М.Л. Гаспаров «Марина Цветаева. От поэтики быта к поэтике слова», О русской поэзии. Анализы.
+              Интерпретации. Характеристики. - СПб., 2001. - С. 136-149 (в формате PDF, 20.14 мб)</a></p>
+        </li>
+        <li class="download__item">
+          <p><a href="#">М.И. Цветаева. Эссе «Мой Пушкин», 1937 (в формате PDF, 10.48 мб)</a></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 <nav class="main-nav">
   <button class="main-nav__button" type="button" aria-expanded="false" aria-controls="main-nav__list">
-    <svg class="main-nav__icon" aria-hidden="true" width="32" height="32">
+    <svg class="main-nav__icon" aria-hidden="true" width="21" height="14">
       <use class="main-nav__icon-menu" href="images/sprite_auto.svg#menu"></use>
       <use class="main-nav__icon-cross" href="images/sprite_auto.svg#cross"></use>
     </svg>
@@ -14,5 +14,31 @@
         href="{{item.href}}.html">{{item.title}}</a>
     </li>
     {% endfor %}
+
+    <li class="header__user-block">
+      <div class="header__search">
+        <button class="header__search-btn" type="button" aria-label="Открыть форму поиска">
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <use href="images/sprite_auto.svg#search" />
+          </svg>
+        </button>
+        <form class="header__search-form  search-form" action="#" method="GET">
+          <div class="search-form__field">
+            <input type="search">
+            <button class="search-form__submit-btn" type="submit" aria-label="Найти">
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <use href="images/sprite_auto.svg#search" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="lang">
+        <ul class="lang__list">
+          <li class="lang__item"><a href="#">En</a></li>
+          <li class="lang__item"><a href="#">Аа</a></li>
+        </ul>
+      </div>
+    </li>
   </ul>
 </nav>

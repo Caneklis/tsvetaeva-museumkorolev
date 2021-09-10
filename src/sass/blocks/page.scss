@@ -11,6 +11,10 @@
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   background-color: #fff;
+
+  &--no-scroll {
+    overflow-y: hidden;
+  }
 }
 
 .page__main {
