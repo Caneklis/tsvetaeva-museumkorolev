@@ -1,32 +1,32 @@
-const { src, dest, parallel, series, watch, task, gulp } = require('gulp');
-const fs = require('fs');
-const nunjucksRender = require('gulp-nunjucks-render');
-const gulpif = require('gulp-if');
-const changed = require('gulp-changed');
-const prettify = require('gulp-prettify');
-const frontMatter = require('gulp-front-matter');
+const { src, dest, parallel, series, watch, task, gulp } = require("gulp");
+const fs = require("fs");
+const nunjucksRender = require("gulp-nunjucks-render");
+const gulpif = require("gulp-if");
+const changed = require("gulp-changed");
+const prettify = require("gulp-prettify");
+const frontMatter = require("gulp-front-matter");
 
-const markdown = require('nunjucks-markdown');
-const marked = require('marked');
+const markdown = require("nunjucks-markdown");
+const marked = require("marked");
 
-const browserSync = require('browser-sync').create();
-const del = require('del');
+const browserSync = require("browser-sync").create();
+const del = require("del");
 
-const plumber = require('gulp-plumber');
-const csscomb = require('gulp-csscomb');
-const sourcemap = require('gulp-sourcemaps');
-const sass = require('gulp-sass')(require('sass'));
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const csso = require('gulp-csso');
-const rename = require('gulp-rename');
+const plumber = require("gulp-plumber");
+const csscomb = require("gulp-csscomb");
+const sourcemap = require("gulp-sourcemaps");
+const sass = require("gulp-sass")(require("sass"));
+const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
+const csso = require("gulp-csso");
+const rename = require("gulp-rename");
 
-const webpackStream = require('webpack-stream');
-const webpackConfig = require('./webpack.config.js');
+const webpackStream = require("webpack-stream");
+const webpackConfig = require("./webpack.config.js");
 
-const imagemin = require('gulp-imagemin');
-const webp = require('gulp-webp');
-const svgstore = require('gulp-svgstore');
+const imagemin = require("gulp-imagemin");
+const webp = require("gulp-webp");
+const svgstore = require("gulp-svgstore");
 
 const manageEnvironment = function (env) {
   markdown.register(env, marked);
@@ -36,33 +36,33 @@ const renderHtml = (onlyChanged) => {
   nunjucksRender.nunjucks.configure({
     watch: false,
     trimBlocks: true,
-    lstripBlocks: false
+    lstripBlocks: false,
   });
 
-  return src(['src/templates/**/[^_]*.html'])
+  return src(["src/templates/**/[^_]*.html"])
     .pipe(plumber())
-    .pipe(gulpif(onlyChanged, changed('build')))
-    .pipe(frontMatter({ property: 'data' }))
+    .pipe(gulpif(onlyChanged, changed("build")))
+    .pipe(frontMatter({ property: "data" }))
     .pipe(
       nunjucksRender({
         //PRODUCTION: config.production,
-        path: 'src/templates',
+        path: "src/templates",
         manageEnv: manageEnvironment,
         data: {
-          base_path: ''
-        }
+          base_path: "",
+        },
       })
     )
     .pipe(
       prettify({
         indent_size: 2,
-        wrap_attributes: 'auto', // 'force'
+        wrap_attributes: "auto", // 'force'
         preserve_newlines: false,
         // unformatted: [],
-        end_with_newline: true
+        end_with_newline: true,
       })
     )
-    .pipe(dest('build'));
+    .pipe(dest("build"));
 };
 
 // exports.renderHtml = renderHtml;
@@ -75,99 +75,98 @@ const nunjucksChanged = () => renderHtml(true);
 
 exports.nunjucksChanged = nunjucksChanged;
 
-task('nunjucks', () => renderHtml());
-task('nunjucks:changed', () => renderHtml(true));
+task("nunjucks", () => renderHtml());
+task("nunjucks:changed", () => renderHtml(true));
 
 //Styles
 const styles = () => {
-  return src('src/sass/style.{scss,sass}')
-    .pipe(plumber())
+  return src("src/sass/style.{scss,sass}")
     .pipe(sourcemap.init())
-    .pipe(sass())
+    .pipe(sass().on("error", sass.logError))
     .pipe(
       postcss([
         autoprefixer({
-          grid: true
-        })
+          grid: true,
+        }),
       ])
     )
-    .pipe(csscomb({ configPath: './csscomb.json' }))
-    .pipe(dest('build/css'))
+    .pipe(csscomb({ configPath: "./csscomb.json" }))
+    .pipe(dest("build/css"))
     .pipe(csso())
-    .pipe(rename('style.min.css'))
-    .pipe(sourcemap.write('.'))
-    .pipe(dest('build/css'))
+    .pipe(rename("style.min.css"))
+    .pipe(sourcemap.write("."))
+    .pipe(dest("build/css"))
     .pipe(browserSync.stream());
 };
 
 const js = () => {
-  return src(['src/js/main.js'])
+  return src(["src/js/main.js"])
     .pipe(webpackStream(webpackConfig))
-    .pipe(dest('build/js'));
+    .pipe(dest("build/js"));
 };
 
 // Static server
 const server = () => {
   browserSync.init({
-    server: 'build/',
+    server: "build/",
     notify: false,
     open: true,
     cors: true,
-    ui: false
+    ui: false,
   });
 
-  watch('src/sass/**/*.{scss,sass}', series(styles));
+  watch("src/sass/**/*.{scss,sass}", series(styles));
   watch(
-    'src/templates/**/*.+(html|nunjucks|md)',
-    parallel('nunjucks', refresh)
+    "src/templates/**/*.+(html|nunjucks|md)",
+    parallel("nunjucks", refresh)
   );
-  watch('src/js/**/*.{js,json}', series(js, refresh));
+  watch("src/js/**/*.{js,json}", series(js, refresh));
 };
 
 const svgo = () => {
-  return src('src/images/**/*.{svg}')
+  return src("src/images/**/*.{svg}")
     .pipe(
       imagemin([
         imagemin.svgo({
           plugins: [
             { removeViewBox: false },
             { removeRasterImages: true },
-            { removeUselessStrokeAndFill: false }
-          ]
-        })
+            { removeUselessStrokeAndFill: false },
+          ],
+        }),
       ])
     )
-    .pipe(dest('src/images'));
+    .pipe(dest("src/images"));
 };
 
 const sprite = () => {
-  return src('src/images/sprite/*.svg')
+  return src("src/images/sprite/*.svg")
     .pipe(svgstore({ inlineSvg: true }))
-    .pipe(rename('sprite_auto.svg'))
-    .pipe(dest('build/images'));
+    .pipe(rename("sprite_auto.svg"))
+    .pipe(dest("build/images"));
 };
 
 //Copy files
 const copy = () => {
   return src(
     [
-      'src/*.html',
-      'src/images/**/*.{png,jpg,gif,svg}',
-      'src/fonts/**',
-      'src/favicon/**',
-      'src/data/**',
-      'src/file/**',
-      'src/*.php',
-      'src/video/**' // учтите, что иногда git искажает видеофайлы, некоторые шрифты, pdf и gif - проверяйте и если обнаруживаете баги - скидывайте тестировщику такие файлы напрямую
+      "src/*.html",
+      "src/images/**/*.{png,jpg,gif,svg}",
+      "src/fonts/**",
+      "src/favicon/**",
+      "src/data/**",
+      "src/file/**",
+      "src/*.php",
+      "src/video/**", // учтите, что иногда git искажает видеофайлы, некоторые шрифты, pdf и gif - проверяйте и если обнаруживаете баги - скидывайте тестировщику такие файлы напрямую
     ],
     {
-      base: 'src'
+      base: "src",
     }
-  ).pipe(dest('build'));
+  ).pipe(dest("build"));
 };
 
 const clean = () => {
-  return del('build');
+  return del("build");
 };
 
 const refresh = (done) => {
@@ -179,14 +178,14 @@ const build = series(clean, styles, copy, svgo, nunjucks, js, sprite);
 const start = series(build, server);
 
 const optimizeImages = () => {
-  return src('build/images/**/*.{png,jpg}')
+  return src("build/images/**/*.{png,jpg}")
     .pipe(
       imagemin([
         imagemin.optipng({ optimizationLevel: 3 }),
-        imagemin.mozjpeg({ quality: 75, progressive: true })
+        imagemin.mozjpeg({ quality: 75, progressive: true }),
       ])
     )
-    .pipe(dest('build/images'));
+    .pipe(dest("build/images"));
 };
 
 exports.build = build;

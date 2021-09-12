@@ -9,13 +9,17 @@
 
   input {
     flex-grow: 1;
-    padding: 27px 40px;
+    padding: 17px 20px;
     border: none;
     outline: none;
     font-family: inherit;
     font-size: 18px;
     line-height: 18px;
     color: #a4a4a4;
+
+    @media ($tablet) {
+      padding: 27px 40px;
+    }
   }
 
   &--full {
@@ -54,5 +58,12 @@
   &:hover,
   &:focus {
     color: #000;
+  }
+
+  @media (max-width: 767px) {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    left: 80%;
   }
 }

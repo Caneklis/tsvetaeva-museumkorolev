@@ -290,6 +290,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         this.parentNode.classList.add("active");
 
+        document
+          .querySelector(".poimapbox-sidebar")
+          .classList.remove("poimapbox-sidebar--active");
+        document.querySelector(".mapboxgl__search-form-toggle").style.display =
+          "block";
         document.querySelector(".years").classList.add("years--hide");
       });
     }
@@ -482,6 +487,60 @@ document.addEventListener("DOMContentLoaded", () => {
       resumeBtn.classList.add("years-resume-btn--hide");
       timer.resume();
       // timer = null;
+    });
+  });
+
+  // function set(e) {
+  //   //  Target the image ID (img_prev)          (Filter)
+  //   // document.getElementById('img_prev').style["webkitFilter"] = "sepia("+e.value+")";
+  //   // document.getElementById('Amount').innerHTML="("+e.value+")";
+  //   console.log(e.value);
+  // }
+
+  // const range = document.querySelector("#sepia");
+  // range.addEventListener("change", () => {
+  //   set(range);
+  // });
+
+  const range = document.getElementById("range");
+  const scale = (num, in_min, in_max, out_min, out_max) => {
+    return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+  };
+
+  range.addEventListener("input", (e) => {
+    const value = +e.target.value;
+    const label = e.target.nextElementSibling;
+    const rangeWidth = getComputedStyle(e.target).getPropertyValue("width");
+    const labelWidth = getComputedStyle(label).getPropertyValue("width");
+    // remove px
+    const numWidth = +rangeWidth.substring(0, rangeWidth.length - 2);
+    const numLabelWidth = +labelWidth.substring(0, labelWidth.length - 2);
+    const max = +e.target.max;
+    const min = +e.target.min;
+    const top =
+      value * (numWidth / max) -
+      numLabelWidth / 2 +
+      scale(value, min, max, 10, -10);
+    label.style.top = `${top + 5}px `;
+    label.innerHTML = value + 1892;
+    label.setAttribute("data-year", value + 1892);
+
+    let selectedFilter = label.getAttribute("data-year");
+    let itemsToHide = document.querySelectorAll(
+      `.mapboxgl-marker:not([data-year='${selectedFilter}'])`
+    );
+    let itemsToShow = document.querySelectorAll(
+      `[data-year='${selectedFilter}']`
+    );
+
+    itemsToHide.forEach((el) => {
+      el.classList.add("hide");
+      el.classList.remove("show");
+    });
+
+    itemsToShow.forEach((el) => {
+      el.classList.remove("hide");
+      el.classList.add("show");
     });
   });
 });

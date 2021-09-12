@@ -34,7 +34,7 @@
 
   &--media {
     display: grid;
-    row-gap: 17px;
+    // row-gap: 17px;
     margin-top: 50px;
     margin-bottom: 50px;
   }
@@ -55,6 +55,12 @@
 
   @media ($tablet) {
     padding-bottom: 90px;
+  }
+
+  @media (max-width: 767px) {
+    background-position-x: center;
+    background-position-y: bottom;
+    padding-bottom: 50%;
   }
 }
 
@@ -123,11 +129,31 @@
 }
 
 .textpage__left {
-  grid-column: col / span 3;
+  grid-column: col / span 12;
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: 18px;
+    line-height: 24px;
+    /* or 133% */
+
+    color: #0aa9be;
+  }
+
+  @media ($tablet) {
+    grid-column: col / span 3;
+    margin-bottom: 0;
+
+    h2 {
+      font-size: 30px;
+      line-height: 48px;
+    }
+  }
 }
 
 .textpage__text {
   grid-column: 4 / span 6;
+  margin-bottom: 30px;
 
   p {
     margin: 0;
@@ -135,6 +161,10 @@
     font-size: 12px;
     line-height: 18px;
     color: #000000;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     @media ($tablet) {
       margin-bottom: 45px;
@@ -147,10 +177,14 @@
     font-family: $s-font;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 27px;
-
+    font-size: 18px;
+    line-height: 24px;
     color: #0aa9be;
+
+    @media ($tablet) {
+      font-size: 26px;
+      line-height: 29px;
+    }
   }
 
   h3 {
@@ -158,19 +192,30 @@
     font-family: $s-font;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 27px;
+    font-size: 16px;
+    line-height: 20px;
     color: #6b4786;
+
+    @media ($tablet) {
+      font-size: 26px;
+      line-height: 29px;
+    }
   }
 
   h4 {
     margin: 0;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     font-family: $b-font;
     font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 16px;
+    line-height: 20px;
     color: #6b4786;
+
+    @media ($tablet) {
+      margin-bottom: 30px;
+      font-size: 26px;
+      line-height: 31px;
+    }
 
     a {
       color: inherit;
@@ -224,6 +269,10 @@
 
   a {
     color: #d19f18;
+  }
+
+  @media ($tablet) {
+    margin-bottom: 47px;
   }
 }
 
@@ -295,22 +344,27 @@
 }
 
 .textpage__gallery-slider-prev {
-  left: -30px;
+  left: -20px;
   color: #eee1be;
 }
 
 .textpage__gallery-slider-next {
-  right: -30px;
+  right: -20px;
 }
 
 .textpage__cite {
-  margin-bottom: 80px;
-  padding: 80px 0;
+  margin-bottom: 40px;
+  padding: 40px 0;
   background: #efdfc5;
   background-image: url("../images/textpage-cite-bg.jpg");
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @media ($tablet) {
+    margin-bottom: 80px;
+    padding: 80px 0;
+  }
 }
 
 .textpage__cite-text {
@@ -318,18 +372,20 @@
   font-family: $s-font;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 16px;
+  line-height: 24px;
   color: #694484;
   position: relative;
+  padding-left: 40px;
 
   &::before {
     content: url("../images/quotes.svg");
     position: absolute;
     top: 0;
-    left: -96px;
+    left: -15px;
     display: block;
-    width: 106px;
+    width: 70px;
+    height: 53px;
   }
 
   p {
@@ -340,6 +396,19 @@
       margin-bottom: 0;
     }
   }
+
+  @media ($tablet) {
+    padding-left: 0;
+    font-size: 24px;
+    line-height: 36px;
+
+    &::before {
+      left: -96px;
+      display: block;
+      width: 106px;
+      height: 80px;
+    }
+  }
 }
 
 .textpage__large-slider {
@@ -347,7 +416,7 @@
   overflow: hidden;
   max-width: 1920px;
   margin: 0 auto;
-  margin-bottom: 90px;
+  margin-bottom: 60px;
 
   .swiper-horizontal > .swiper-pagination-bullets,
   .swiper-pagination-bullets.swiper-pagination-horizontal,
@@ -380,6 +449,10 @@
       background: #a0e7f0;
     }
   }
+
+  @media ($tablet) {
+    margin-bottom: 90px;
+  }
 }
 
 .textpage__large-slider-next,
@@ -402,6 +475,10 @@
     background: #5896a3;
     color: #fff;
   }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 .textpage__large-slider-next {
@@ -419,6 +496,11 @@
   @media (max-width: 560px) {
     max-width: 480px;
     overflow-x: scroll;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #0b7d8c;
+      border-radius: 3px;
+    }
   }
 
   table {
