@@ -49,7 +49,7 @@ const renderHtml = (onlyChanged) => {
         path: "src/templates",
         manageEnv: manageEnvironment,
         data: {
-          base_path: "",
+          base_path: "/",
         },
       })
     )

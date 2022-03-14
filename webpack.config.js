@@ -7,10 +7,15 @@ const isDev = !isProd;
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
-  mode: "development",
+  mode: "production",
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
   entry: {
     main: "./js/main.js",
-    libs: "./js/libs.js",
+    // libs: "./js/libs.js",
   },
   devtool: isDev ? "source-map" : false,
   output: {

@@ -9,10 +9,11 @@
   <!-- Primary Meta Tags -->
   <title>{% if title %}{{ title }}{% else %}Template{% endif %}</title>
   <meta name="description" content="{% if description %}{{ description }}{% else %}Description{% endif %}">
+  <link rel="preload" href="/fonts/alice-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/montserrat-v15-latin_cyrillic-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/montserrat-v15-latin_cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/montserrat-v15-latin_cyrillic-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" media="all" href="{{ base_path }}css/style.min.css" />
-  <!-- BEGIN social data -->
-  {% include "../partials/_media-tags.html" %}
-  <!-- END social data -->
   <link rel="icon" href="{{ base_path }}favicon/favicon.ico"><!-- 32×32 -->
   <link rel="icon" href="{{ base_path }}favicon/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="{{ base_path }}favicon/apple-touch-icon.png"><!-- 180×180 -->
@@ -31,6 +32,8 @@
   {% include '../partials/_footer.html' %}
 
   <!-- BEGIN scripts -->
+
+  {% if map %}
 
   <!-- <script>
     const geojson = {
@@ -75,6 +78,7 @@
       ]
     };
   </script> -->
+
 
   <script>
     let places = {
@@ -506,16 +510,15 @@
   </script>
 
 
+
+
+
   <script
     src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
   <link rel="stylesheet"
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
-  <!-- <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
-  <script src="{{ base_path }}js/libs.min.js"></script>
+  {% endif %}
   <script src="{{ base_path }}js/main.min.js"></script>
-
-  <script>
-  </script>
   <!-- END scripts -->
 
 </body>
