@@ -317,8 +317,8 @@ body {
 .marker {
   background-image: url("mapbox-icon.png");
   background-size: contain;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   cursor: pointer;
   background-repeat: no-repeat;
@@ -338,7 +338,7 @@ body {
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: center;
-  background-size: 38px;
+  background-size: 22px;
 
   @media (max-width: 767px) {
     background-size: 18px;
@@ -352,7 +352,7 @@ body {
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: center;
-  background-size: 32px;
+  background-size: 18px;
 
   @media (max-width: 767px) {
     background-size: 16px;
@@ -366,11 +366,23 @@ body {
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: center;
-  background-size: 26px;
+  background-size: 15px;
 
   @media (max-width: 767px) {
     background-size: 12px;
   }
+}
+
+.media-center {
+  background-image: url("../images/media-centr-icon.svg");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: center;
+  background-size: cover;
+
+  // @media (max-width: 767px) {
+  //   background-size: 18px;
+  // }
 }
 
 .mapboxgl-popup {
@@ -450,6 +462,30 @@ body {
       td {
         &:first-of-type {
           color: #c49f3c;
+        }
+      }
+    }
+  }
+
+  &--media-center {
+    .mapboxgl__custom-content-head {
+      background: #fffaec;
+
+      h3 {
+        color: #69da75;
+      }
+    }
+
+    .mapboxgl__custom-content-text {
+      h2 {
+        color: #69da75;
+      }
+    }
+
+    table {
+      td {
+        &:first-of-type {
+          color: #69da75;
         }
       }
     }
@@ -675,6 +711,17 @@ body {
     @media (max-width: 767px) {
       background-size: 16px;
     }
+  }
+
+  &--media-center {
+    background-color: #69da75;
+    background-image: url("../images/media-centr-icon.svg");
+    background-size: cover;
+    border: none;
+
+    // @media (max-width: 767px) {
+    //   background-size: 16px;
+    // }
   }
 
   @media (max-width: 767px) {
@@ -1321,5 +1368,21 @@ body {
     margin-top: -9px;
     cursor: pointer;
     box-shadow: inset 0 0 0 5px #57e3ec;
+  }
+}
+
+.mapboxgl__popup-slider {
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    margin: 7px;
+    background: #0aa9be;
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active {
+      background-color: #fff;
+    }
   }
 }

@@ -230,14 +230,25 @@ document.addEventListener("DOMContentLoaded", () => {
         .setLngLat(currentFeature.geometry.coordinates)
         .setHTML(
           `
-          <div class="mapboxgl__custom-content  mapboxgl__custom-content--${currentFeature.properties.type}" >
+          <div class="mapboxgl__custom-content  mapboxgl__custom-content--${
+            currentFeature.properties.type
+          }" >
             <div class="mapboxgl__custom-content-head">
               <h3>${currentFeature.properties.name}</h3>
               <p>${currentFeature.properties.subtitle}</p>
             </div>
             <div class="mapboxgl__custom-content-media">
-              <img src="${currentFeature.properties.image}">
+              ${
+                currentFeature.properties.image
+                  ? '<img src="' + currentFeature.properties.image + '">'
+                  : ""
+              }
             </div>
+            ${
+              currentFeature.properties.slider
+                ? currentFeature.properties.slider
+                : ""
+            }
             <div class="mapboxgl__custom-content-text">
               ${currentFeature.properties.info}
             </div>
@@ -255,6 +266,14 @@ document.addEventListener("DOMContentLoaded", () => {
     </svg>
 
     `;
+
+      const mapboxPopupSlider = new Swiper(".mapboxgl__popup-slider.swiper", {
+        pagination: {
+          el: ".swiper-pagination",
+          type: "bullets",
+          clickable: true,
+        },
+      });
     }
 
     function buildLocationList(data) {

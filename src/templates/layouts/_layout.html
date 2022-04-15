@@ -88,6 +88,44 @@
           type: 'Feature',
           properties:
           {
+            type: 'media-center',
+            year: '1892',
+            name: 'Дом памяти М.И. Цветаевой в Елабуге',
+            subtitle: 'Республика Татарстан, город Елабуга, ул. Малая Покровская, 20',
+            info: `
+    <table>
+            <tr>
+              <td>Телефон</td>
+              <td>
+                <p>+7(85557)7-05-11</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Часы работы</td>
+              <td>
+                <p>ежедневно 09:00–18:00 <br>
+                   выходной - понедельник</p>
+              </td>
+            </tr>
+          </table>
+          <p>Общая литературная ситуация в передовой поэзии этого времени тоже известна. К 1910 г. завершил свой цикл развития символизм, вожди его перестали быть группой и пошли каждый своим путем; выработанная ими поэтика - очень богатый и пестрый набор образов, эмоций, стиля, стиха - осталась достоянием учеников. Именно набор, а не "система": системой поэтика символизма была только в творчестве каждого отдельного из ведущих поэтов, а для наследников она распалась на кучу приемов, некое стилистическое эсперанто, преимущественно из брюсовских элементов, в котором каждый должен был разбираться по-своему. Это - то, о чем Пастернакак сам принадлежавший к этому поколению и к этой среде, писал потом в юбилейной инвективе Брюсову: "И мы на перья разодрали крылья".</p>
+
+          <div class="mapboxgl__custom-content-links">
+            <a href="http//www.elabuga.com" class="mapboxgl__custom-content-link">Сайт музея</a>
+            <a href="#" class="mapboxgl__custom-content-link  mapboxgl__custom-content-link--invert">Видеоэкскурсия</a>
+          </div>
+          `
+          },
+          geometry:
+          {
+            type: 'Point',
+            coordinates: [56.0720, 25.7550]
+          }
+        },
+        {
+          type: 'Feature',
+          properties:
+          {
             type: 'museum',
             year: '1892',
             name: 'Дом памяти М.И. Цветаевой в Елабуге',
@@ -162,6 +200,18 @@
             name: 'Россия, Калужская область, Таруса',
             subtitle: '6 октября 1986 года',
             cityzip: ' ',
+            slider: `
+            <div class="mapboxgl__popup-slider swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide"><img src="https://www.mos.ru/upload/newsfeed/newsfeed/vn1(810).JPG" alt=""></div>
+                  <div class="swiper-slide"><img src="https://www.mos.ru/upload/newsfeed/newsfeed/vn1(810).JPG" alt=""></div>
+                  <div class="swiper-slide"><img src="https://www.mos.ru/upload/newsfeed/newsfeed/vn1(810).JPG" alt=""></div>
+                  <div class="swiper-slide"><img src="https://www.mos.ru/upload/newsfeed/newsfeed/vn1(810).JPG" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>`,
             info: `
     <table>
             <tr>
@@ -470,6 +520,17 @@
             name: 'Дом-музей Марины Цветаевой',
             subtitle: 'Москва, Борисоглебский переулок, 6',
             cityzip: ' ',
+            slider: ` <div class="mapboxgl__popup-slider swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide"><img src="https://www.mos.ru/upload/newsfeed/newsfeed/vn1(810).JPG" alt=""></div>
+                  <div class="swiper-slide"><img src="https://www.mos.ru/upload/newsfeed/newsfeed/vn1(810).JPG" alt=""></div>
+                  <div class="swiper-slide"><img src="https://www.mos.ru/upload/newsfeed/newsfeed/vn1(810).JPG" alt=""></div>
+                  <div class="swiper-slide"><img src="https://www.mos.ru/upload/newsfeed/newsfeed/vn1(810).JPG" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>`,
             info: `
           <table>
             <tr>
@@ -496,7 +557,7 @@
             <a href="#" class="mapboxgl__custom-content-link  mapboxgl__custom-content-link--invert">Видеоэкскурсия</a>
           </div>
           `,
-            imagetmb: 'https://www.mos.ru/upload/newsfeed/newsfeed/vn1(810).JPG',
+
             image: 'https://www.mos.ru/upload/newsfeed/newsfeed/vn1(810).JPG',
           },
           geometry:
@@ -508,9 +569,6 @@
     };
 
   </script>
-
-
-
 
 
   <script
