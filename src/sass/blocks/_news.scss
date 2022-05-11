@@ -25,6 +25,7 @@
 
   &--full {
     display: grid;
+    align-items: flex-start;
     row-gap: 45px;
     margin-bottom: 40px;
   }

@@ -2,6 +2,7 @@
 import Swiper from "../../node_modules/swiper/swiper-bundle.min";
 // import mapboxgl from "mapbox-gl";
 import mapboxgl from "mapbox-gl";
+import { Fancybox } from "@fancyapps/ui";
 
 document.addEventListener("DOMContentLoaded", () => {
   // eslint-disable-next-line no-console
@@ -33,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       slidesPerView: 1,
       spaceBetween: 20,
-
+      centeredSlides: true,
       pagination: {
         el: ".textpage__gallery-slider-pagination",
         clickable: true,
@@ -573,4 +574,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  Fancybox.bind("[data-fancybox]", {
+    Toolbar: {
+      display: [],
+      autoEnable: false,
+    },
+  });
+
+  new isvek.Bvi({
+    fontSize: 32,
+    theme: "white",
+    speech: false,
+  });
 });
