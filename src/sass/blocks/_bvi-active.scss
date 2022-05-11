@@ -1,0 +1,97 @@
+.bvi-active {
+  .main-nav {
+    width: 100% !important;
+    padding: 30px 0;
+  }
+
+  .main-nav__list,
+  .lang__list {
+    align-items: center;
+  }
+
+  .lang__item {
+    margin: 0;
+
+    a {
+      padding: 20px;
+    }
+  }
+
+  .hero__title {
+    grid-column: 1 / -1 !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__wrapper p {
+    grid-column: 1 / -1 !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .news__head h3,
+  .news__article p,
+  .vr__text p,
+  .section-map__text p,
+  .collection__section-head p,
+  .collection__item p,
+  .footer__item-link,
+  .textpage__text p,
+  .footer__contacts-type,
+  .footer__contacts-info,
+  .search-page__results-item p {
+    line-height: 1.5 !important;
+  }
+
+  .footer__wrapper {
+    display: flex !important;
+    flex-direction: column;
+
+    img {
+      display: none;
+    }
+  }
+
+  .vr__right,
+  .section-map__cite,
+  .hero {
+    background-image: none !important;
+  }
+
+  .header__search-form,
+  .search-form__field--full {
+    border: 2px solid #000;
+  }
+
+  .search-form__submit-btn,
+  .header__search-btn {
+    background-color: transparent !important;
+    svg {
+      width: 60px !important;
+      height: 60px !important;
+    }
+  }
+
+  .download__item {
+    &::before {
+      display: none;
+    }
+  }
+
+  .years__item {
+    padding: 30px 0;
+  }
+
+  .mapbox__range-filter,
+  .years,
+  .poimapbox-map,
+  .mapbox__search {
+    display: none;
+  }
+
+  .mapbox__list {
+    display: block;
+
+    @include wrapper;
+  }
+}

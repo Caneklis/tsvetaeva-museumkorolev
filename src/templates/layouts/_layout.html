@@ -568,6 +568,20 @@
         }]
     };
 
+
+
+    for (const a of places.features) {
+      console.log(a.properties.year);
+      const tpl = `
+        <li>
+          <h2>${a.properties.name}</h2>
+          <div>${a.properties.info}</div>
+        </li>
+      `
+
+      document.querySelector('.mapbox__list').insertAdjacentHTML('afterbegin', tpl)
+    }
+
   </script>
 
 

@@ -27,6 +27,7 @@
 @import "blocks/video";
 @import "blocks/download";
 @import "blocks/search-page";
+@import "blocks/bvi-active";
 // @import "blocks/accordion";
 // @import "blocks/tabs";
 
@@ -1089,6 +1090,7 @@ body {
   left: 0;
   bottom: 0;
   z-index: 2;
+  overflow-y: scroll;
   background-color: #3399ab;
   color: #fff;
   width: 200px;
@@ -1387,4 +1389,8 @@ body {
       background-color: #fff;
     }
   }
+}
+
+.mapbox__list {
+  display: none;
 }
