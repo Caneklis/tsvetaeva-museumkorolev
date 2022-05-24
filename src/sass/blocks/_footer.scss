@@ -116,6 +116,7 @@
 
 .footer__nav-link {
   color: inherit;
+  transition: color 0.3s ease;
 
   &--current,
   &:hover {
