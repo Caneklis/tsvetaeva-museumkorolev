@@ -386,6 +386,10 @@
 
 .textpage__gallery-slider-container {
   overflow: hidden;
+
+  .swiper-slide {
+    width: auto;
+  }
 }
 
 .textpage__gallery-slider-prev,

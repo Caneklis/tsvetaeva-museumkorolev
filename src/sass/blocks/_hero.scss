@@ -21,7 +21,6 @@
   }
 
   p {
-    grid-column: 3 / span 4;
     margin: 0;
     margin-bottom: 35px;
     padding-left: 34px;
@@ -40,6 +39,10 @@
       padding-left: 0;
     }
   }
+}
+
+.hero__poem {
+  grid-column: 3 / span 4;
 }
 
 .hero__title {

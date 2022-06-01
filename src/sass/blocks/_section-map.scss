@@ -8,7 +8,8 @@
   }
 }
 
-.section-map__cite {
+.section-map__cite,
+.section-map__left {
   position: relative;
   padding-top: 40px;
   padding-bottom: 42px;
@@ -51,7 +52,8 @@
   // }
 }
 
-.section-map__text {
+.section-map__text,
+.section-map__right {
   // grid-column: 6 / span 6;
   max-width: 850px;
   margin-right: auto;
@@ -85,7 +87,8 @@
   }
 }
 
-.section-map__btn {
+.section-map__btn,
+.section-map__link {
   width: 100%;
   margin-top: 40px;
   padding: 10px 40px;

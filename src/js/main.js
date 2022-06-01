@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const textpageGallerySlider = new Swiper(
     ".textpage__gallery-slider-container",
     {
-      slidesPerView: 1,
+      slidesPerView: "auto",
       spaceBetween: 20,
       centeredSlides: true,
       pagination: {
@@ -43,11 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       breakpoints: {
         768: {
-          slidesPerView: 2,
+          slidesPerView: "auto",
           spaceBetween: 40,
         },
         1024: {
-          slidesPerView: 3,
+          slidesPerView: "auto",
           spaceBetween: 40,
           navigation: {
             nextEl: ".textpage__gallery-slider-next",
