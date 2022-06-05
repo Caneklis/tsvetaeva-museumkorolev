@@ -58,6 +58,14 @@
     font-size: 20px;
     line-height: 26px;
     color: #694484;
+
+    a {
+      color: inherit;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   p {

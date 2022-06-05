@@ -4,7 +4,7 @@ import Swiper from "../../node_modules/swiper/swiper-bundle.min";
 import mapboxgl from "mapbox-gl";
 import { Fancybox } from "@fancyapps/ui";
 // require("../../node_modules/bvi/dist/js/bvi.min.js");
-import { Bvi, isvek } from "bvi";
+// import { Bvi, isvek } from "bvi";
 
 document.addEventListener("DOMContentLoaded", () => {
   // eslint-disable-next-line no-console
