@@ -187,6 +187,30 @@ body {
       line-height: 22px;
     }
   }
+
+  summary {
+    display: block;
+    color: #694484;
+    font-weight: 600;
+    position: relative;
+    padding-left: 20px;
+    text-decoration: underline;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  details[open] > summary::before {
+    content: "\2193";
+  }
 }
 
 .mapboxgl__custom-content-links {
@@ -1108,16 +1132,23 @@ body {
     opacity: 0;
   }
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 52px;
-    // bottom: 0;
-    display: block;
-    width: 3px;
-    height: 100%;
-    background-color: #fff;
+  &__list {
+    @include list-reset;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+
+      bottom: 0;
+      left: 2px;
+      // bottom: 0;
+      display: block;
+      width: 3px;
+      // height: 100%;
+      background-color: #fff;
+    }
   }
 
   // &::after {
@@ -1388,6 +1419,12 @@ body {
     &.swiper-pagination-bullet-active {
       background-color: #fff;
     }
+  }
+}
+
+.mapboxgl__popup-slider {
+  img {
+    margin: 0 auto;
   }
 }
 

@@ -271,6 +271,8 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
       const mapboxPopupSlider = new Swiper(".mapboxgl__popup-slider.swiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
         pagination: {
           el: ".swiper-pagination",
           type: "bullets",
