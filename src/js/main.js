@@ -1,6 +1,4 @@
-// import { doc } from 'prettier';
 import Swiper from "../../node_modules/swiper/swiper-bundle.min";
-// import mapboxgl from "mapbox-gl";
 import mapboxgl from "mapbox-gl";
 import { Fancybox } from "@fancyapps/ui";
 // require("../../node_modules/bvi/dist/js/bvi.min.js");
@@ -132,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       center: [37.6136, 55.7328],
       zoom: 3,
+      focusAfterOpen: false,
     });
 
     const filters = document.querySelectorAll(".filter__item");
@@ -143,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
           `.mapboxgl-marker:not([data-filter='${selectedFilter}'])`
         );
         let itemsToShow = document.querySelectorAll(
-          `[data-filter='${selectedFilter}']`
+          `.mapboxgl-marker[data-filter='${selectedFilter}']`
         );
 
         if (selectedFilter == "all") {
@@ -183,6 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
       el.id = "poimapbox-marker-" + i;
       el.className = `poimapbox-marker  marker  ${marker.properties.type}`;
       el.setAttribute("data-filter", `${marker.properties.type}`);
+
       el.setAttribute("data-year", `${marker.properties.year}`);
       // Add markers to the map at all points
       new mapboxgl.Marker(el, { offset: [0, 0] })
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ? `${currentFeature.properties.image}`
           : "";
 
-      let popup = new mapboxgl.Popup({ closeOnClick: false })
+      let popup = new mapboxgl.Popup({ closeOnClick: true })
         .setLngLat(currentFeature.geometry.coordinates)
         .setHTML(
           `
@@ -243,7 +243,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="mapboxgl__custom-content-media">
               ${
                 currentFeature.properties.image
-                  ? '<img src="' + currentFeature.properties.image + '">'
+                  ? '<img src="' +
+                    currentFeature.properties.image +
+                    '" loading="lazy">'
                   : ""
               }
             </div>
@@ -279,6 +281,10 @@ document.addEventListener("DOMContentLoaded", () => {
           clickable: true,
         },
       });
+
+      setTimeout(() => {
+        document.querySelector(".mapboxgl__custom-content").scrollTop = 0;
+      }, 100);
     }
 
     function buildLocationList(data) {
@@ -332,33 +338,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const filtersYears = document.querySelectorAll(".years__item");
 
-    filtersYears.forEach((filter) => {
-      filter.addEventListener("click", function () {
-        filtersYears.forEach((item) => {
-          item.classList.remove("years__item--active");
-        });
+    //Hide all items in object array.
+    // $viewItems.hide();
 
-        this.classList.add("years__item--active");
-        // this.classList.add('years__item--active');
-        let selectedFilter = filter.getAttribute("data-year");
-        let itemsToHide = document.querySelectorAll(
-          `.mapboxgl-marker:not([data-year='${selectedFilter}'])`
-        );
-        let itemsToShow = document.querySelectorAll(
-          `[data-year='${selectedFilter}']`
-        );
+    //Loop thru EACH item and show only those with matching id in array
 
-        itemsToHide.forEach((el) => {
-          el.classList.add("hide");
-          el.classList.remove("show");
-        });
+    const filterYears = (elementsToFilter, filterBtn, attrib) => {
+      let dataTags = elementsToFilter;
+      let filterId = filterBtn.getAttribute(attrib);
 
-        itemsToShow.forEach((el) => {
-          el.classList.remove("hide");
-          el.classList.add("show");
+      dataTags.forEach((element) => {
+        const arrOfAttr = Array.from(element.dataset.year);
+
+        element.classList.add("hide");
+        element.dataset.year.split(",").find((el) => {
+          if (el === filterId) {
+            // console.log(el);
+            element.classList.remove("hide");
+          }
         });
       });
+    };
+
+    const markers = document.querySelectorAll(`.poimapbox-marker[data-year]`);
+
+    filtersYears.forEach((filter) => {
+      filter.addEventListener("click", function () {
+        filterYears(markers, filter, "data-year");
+      });
     });
+    // filtersYears
+    //   .filter(function (i, el) {
+    //     var dataTags = $(el).data("tags");
+    //     return dataTags.filter((tag) => tag.id === filterId).length;
+    //   })
+    //   .show();
+
+    // filtersYears.forEach((filter) => {
+    //   filter.addEventListener("click", function () {
+    //     filtersYears.forEach((item) => {
+    //       item.classList.remove("years__item--active");
+    //     });
+
+    //     this.classList.add("years__item--active");
+    //     // this.classList.add('years__item--active');
+    //     let selectedFilter = filter.getAttribute("data-year");
+    //     let itemsToHide = document.querySelectorAll(
+    //       `.mapboxgl-marker:not([data-year='${selectedFilter}'])`
+    //     );
+
+    //     let itemsToShow = document.querySelectorAll(
+    //       `[data-year='${selectedFilter}']`
+    //     );
+
+    //     itemsToHide.forEach((el) => {
+    //       el.classList.add("hide");
+    //       el.classList.remove("show");
+    //     });
+
+    //     itemsToShow.forEach((el) => {
+    //       el.classList.remove("hide");
+    //       el.classList.add("show");
+    //       console.log(el);
+    //     });
+    //   });
+    // });
+
     // }, 1000);
 
     // Add zoom and rotation controls to the map.
@@ -522,18 +567,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // function set(e) {
-    //   //  Target the image ID (img_prev)          (Filter)
-    //   // document.getElementById('img_prev').style["webkitFilter"] = "sepia("+e.value+")";
-    //   // document.getElementById('Amount').innerHTML="("+e.value+")";
-    //   console.log(e.value);
-    // }
-
-    // const range = document.querySelector("#sepia");
-    // range.addEventListener("change", () => {
-    //   set(range);
-    // });
-
     const range = document.getElementById("range");
     const scale = (num, in_min, in_max, out_min, out_max) => {
       return (
@@ -558,24 +591,7 @@ document.addEventListener("DOMContentLoaded", () => {
       label.style.top = `${top + 5}px `;
       label.innerHTML = value + 1892;
       label.setAttribute("data-year", value + 1892);
-
-      let selectedFilter = label.getAttribute("data-year");
-      let itemsToHide = document.querySelectorAll(
-        `.mapboxgl-marker:not([data-year='${selectedFilter}'])`
-      );
-      let itemsToShow = document.querySelectorAll(
-        `[data-year='${selectedFilter}']`
-      );
-
-      itemsToHide.forEach((el) => {
-        el.classList.add("hide");
-        el.classList.remove("show");
-      });
-
-      itemsToShow.forEach((el) => {
-        el.classList.remove("hide");
-        el.classList.add("show");
-      });
+      filterYears(markers, label, "data-year");
     });
   }
 
