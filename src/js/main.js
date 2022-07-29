@@ -364,6 +364,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     filtersYears.forEach((filter) => {
       filter.addEventListener("click", function () {
+        filtersYears.forEach((item) => {
+          item.classList.remove("years__item--active");
+        });
+        this.classList.add("years__item--active");
         filterYears(markers, filter, "data-year");
       });
     });
